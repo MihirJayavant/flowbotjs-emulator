@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useReducer } from "react";
-import { botFactory } from "./custombot";
+import { botFactory } from "../chatbot/custombot";
 import { IActivity, IBot } from "@flowbotjs/core/dist/interfaces";
 
 let bot: IBot | undefined = undefined;

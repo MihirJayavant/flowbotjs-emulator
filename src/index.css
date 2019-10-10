@@ -20,6 +20,8 @@
 
 .sent-message {
   float: right;
+  background-color: blue; 
+  color: white;
 }
 
 .m5 {
