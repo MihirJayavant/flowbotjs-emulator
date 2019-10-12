@@ -1,4 +1,4 @@
-import { IRoute } from "@flowbotjs/core/dist/interfaces";
+import { IRoute } from "@flowbotjs/core";
 import { IBotState } from "../state";
 import { askName, askAge, checkAge } from "../dialogs";
 

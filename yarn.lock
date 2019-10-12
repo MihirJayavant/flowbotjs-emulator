@@ -814,10 +814,10 @@
   resolved "https://registry.yarnpkg.com/@csstools/normalize.css/-/normalize.css-9.0.1.tgz#c27b391d8457d1e893f1eddeaf5e5412d12ffbb5"
   integrity sha512-6It2EVfGskxZCQhuykrfnALg7oVeiI6KclWSmGDqB0AiInVrTGB9Jp9i4/Ad21u9Jde/voVQz6eFX/eSg/UsPA==
 
-"@flowbotjs/core@^0.1.2":
-  version "0.1.2"
-  resolved "https://registry.yarnpkg.com/@flowbotjs/core/-/core-0.1.2.tgz#bbb6ea83a8d910e3a38364e383a432c584136173"
-  integrity sha512-41VxbCBq3fLu1AdQqHgrjdL/EABzWbB0isvcBBayFqR43wuzn3e4psm3blArUZM8Hgehy+C6t45150aO2soMrQ==
+"@flowbotjs/core@^0.2.1":
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/@flowbotjs/core/-/core-0.2.1.tgz#3fc921e1877be18ca760a44bd9df2d4476962383"
+  integrity sha512-/Jp27IrikjDuDegI4FH2p/a9Y55D+P5A2Bz7abHKM0vXi/jN223TVlE+7p1aX32mPPhRAq009R9i0Aw2mHqxXw==
 
 "@hapi/address@2.x.x":
   version "2.1.1"

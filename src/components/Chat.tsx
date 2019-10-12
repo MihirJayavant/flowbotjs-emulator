@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useReducer } from "react";
 import { botFactory } from "../chatbot/custombot";
-import { IActivity, IBot } from "@flowbotjs/core/dist/interfaces";
+import { IActivity, IBot } from "@flowbotjs/core";
+import pretty from './prettyprint';
 
 let bot: IBot | undefined = undefined;
 
@@ -12,6 +13,8 @@ export function Chat() {
     return state;
   }, []);
   const [text, setText] = useState("");
+  const [store, setStore] = useState<any>({});
+  const [error, setError] = useState();
 
   const onMessRec = (activity: IActivity) => {
     setTimeout(() => {
@@ -23,7 +26,7 @@ export function Chat() {
   };
 
   useEffect(() => {
-    bot = botFactory(onMessRec);
+    bot = botFactory(onMessRec, s => setStore(s), err => setError(err));
   }, []);
 
   const getMess = () => {
@@ -32,9 +35,7 @@ export function Chat() {
         p.type === "sent" ? "sent-message message" : "rec-message message";
       return (
         <div className="mess-wrapper" key={i}>
-          <div className={c} >
-            {p.message}
-          </div>
+          <div className={c}>{p.message}</div>
         </div>
       );
     });
@@ -63,22 +64,37 @@ export function Chat() {
 
   return (
     <div>
-      <div className="chat-container">{getMess()}</div>
-      <div className="columns m5">
-        <div className="column">
-          <input
-            className="input is-rounded"
-            placeholder="Enter Message"
-            type="text"
-            value={text}
-            onChange={onChange}
-            onKeyDown={onKeyDown}
-          />
+      <div className="columns">
+        <div className="column is-half">
+          <div className="chat-container">{getMess()}</div>
+          <div className="columns m5">
+            <div className="column">
+              <input
+                className="input is-rounded"
+                placeholder="Enter Message"
+                type="text"
+                value={text}
+                onChange={onChange}
+                onKeyDown={onKeyDown}
+              />
+            </div>
+            <div className="column is-narrow">
+              <button className="button is-info" onClick={onClick}>
+                Send
+              </button>
+            </div>
+          </div>
         </div>
-        <div className="column is-narrow">
-          <button className="button is-info" onClick={onClick}>
-            Send
-          </button>
+        <div className="column is-half">
+          <div className="store">
+            {/* <div dangerouslySetInnerHTML={{__html: pretty(store.state || {})}} ></div> */}
+            <pre style={{textAlign: 'left'}}> {JSON.stringify(store, undefined, "\t")} </pre>
+          </div>
+          <div className="error">
+            <pre>
+              {JSON.stringify(error)}
+            </pre>
+          </div>
         </div>
       </div>
     </div>

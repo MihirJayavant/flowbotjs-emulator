@@ -27,3 +27,11 @@
 .m5 {
   margin: 5px
 }
+
+.store,.error {
+  height: 50vh;
+}
+
+pre {
+  height: 100%;
+}
